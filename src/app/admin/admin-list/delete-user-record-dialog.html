@@ -1,0 +1,12 @@
+
+<div class="dialog-header flex-center">
+  <h2 class="margin-0 ">Delete Confirmation</h2>
+  <button mat-icon-button cdkFocusInitial mat-dialog-close><mat-icon>close</mat-icon></button>
+</div>
+<div mat-dialog-content>
+  <p class="margin-0 text-center">Are you sure you want to delete this record?</p>  
+</div>
+<div mat-dialog-actions class="center-align">
+  <button mat-raised-button mat-dialog-close >Cancel</button>
+  <button mat-raised-button color="primary" mat-dialog-close (click)="delete()" >Yes</button>
+</div>

@@ -1,0 +1,62 @@
+
+<!-- Navbar -->
+<div class="navbar vertical-align-middle">
+  <div class="navbar-header vertical-align-middle">
+    <div class="logo-wrapper vertical-align-middle">
+      <img src="assets/img/circle.png" width="45">
+      <h2 class="heading-tag">Administration Panel</h2>
+    </div>
+    <div>
+      <mat-form-field fxShow fxHide.xs="true">
+        <mat-label>Select Company</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let company of companies;let i = index;" [value]="company.name">
+            {{company.name}}
+            </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-icon-button [matMenuTriggerFor]="userMenu" >
+        <mat-icon>power_settings_new</mat-icon>
+      </button>
+      <mat-menu #userMenu="matMenu" class="user-menu">        
+        <div class="vertical-align-middle user-profile padding-lr-15"> 
+          <img src="assets/img/dummy-user-img.png" width="40" alt="user_image" >         
+          <span>John Snow</span>
+        </div>
+        <button mat-menu-item class="sign-out">          
+          <span>Sign Out</span>
+        </button>
+      </mat-menu>
+      <button mat-icon-button (click)="sidenav.toggle()" *ngIf="mobileQuery.matches">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>    
+  </div>
+</div>
+
+<!-- Sidenav -->
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'" 
+  [opened]="mobileQuery.matches ? 'false' : 'true'">
+    <ul class="sidenavList">
+      <li *ngFor="let nav of sideNavTabs" >
+        <a mat-button routerLinkActive="active" routerLink="{{nav.navigate}}" >{{nav.name}}</a>
+      </li>
+      <li routerLinkActive="active">
+          <button mat-button class="panel-btn" (click)="reportPanel.toggle();panelOpenState=!panelOpenState" >Report
+            <mat-icon *ngIf="!panelOpenState">keyboard_arrow_down</mat-icon>
+            <mat-icon *ngIf="panelOpenState">keyboard_arrow_up</mat-icon>           
+          </button>
+          <mat-expansion-panel #reportPanel [hideToggle]="true" expanded="{{href}}">           
+            <a mat-button routerLinkActive="active" routerLink="report-one" >Report 1 </a>
+            <a mat-button routerLinkActive="active" routerLink="report-two" >Report 2</a>
+          </mat-expansion-panel>
+      </li>
+    </ul>
+  </mat-sidenav>
+  <mat-sidenav-content>    
+    <!-- Router Selector for component -->
+    <router-outlet></router-outlet> 
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

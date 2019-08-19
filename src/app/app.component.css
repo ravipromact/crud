@@ -1,0 +1,30 @@
+/* Navbar */
+.navbar{background-color: #eee;height: 64px;padding: 0 15px;}
+.vertical-align-middle{display: flex;align-items: center}
+.logo-wrapper img{margin-right: 10px;}
+.navbar-header{justify-content: space-between;flex: 1;}
+.user-profile img{margin-right: 15px;}
+.user-profile{ margin-bottom: 5px;}
+.mat-menu-panel{width: 170px;}
+.sign-out{color: red;margin-top: 10px;}
+.sign-out.mat-menu-item:hover:not([disabled]){background: red;color: #fff}
+
+/* Sidenav */
+.sidenav-container.mat-drawer-container {position: absolute;top: 64px;bottom: 0;left: 0;right: 0;}
+.active{ background: #4e4e4e;}
+.sidenavList{list-style: none;padding: 0;}
+.mat-drawer {width: 180px;background: #313131;}
+.sidenavList .mat-expansion-panel {background: #313131;box-shadow: none;border-radius: 0;}
+.sidenavList .mat-expansion-panel-body {padding: 0;}
+.panel-btn .mat-button-wrapper{width: 100%;display: flex;align-items: center;justify-content: space-between;}
+
+/* Navbar and Sidenav common style*/
+.sidenavList .mat-button{width: 100%;border-radius: 0;color: #fff;text-align: left;}
+.sidenavList .mat-menu-item,.user-menu .mat-menu-item{line-height: normal;height: auto;padding: 7px 15px;}
+
+@media(max-width:767px){
+  /* Navbar */
+  .heading-tag{font-size: 16px;}
+  .navbar{padding: 0 8px;}
+  .logo-wrapper img {width: 35px;}
+}

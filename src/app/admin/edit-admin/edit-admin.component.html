@@ -1,0 +1,61 @@
+
+<main>    
+    <section>
+        <div fxLayout="row" fxLayout.xs="column">
+            <div fxFlex="100" >
+                <!-- Section Header -->
+                <div class="section-header padding-lr-30">
+                    <h3>Edit Administrator</h3>
+                    <button mat-raised-button color="primary" routerLink="/admin-list">Back</button>    
+                </div>
+                <hr class="margin-0">
+                <div class="content-padding">
+                    <!-- Admin Form -->
+                    <mat-card *ngIf="user" class="form-width">
+                        <form class="example-form" #userForm="ngForm" (ngSubmit)="save()">
+                            <mat-form-field class="form-control">
+                                <input matInput placeholder="Firstname" name="firstname" [(ngModel)]="user.firstname" #firstname="ngModel" required>
+                                <mat-error *ngIf="firstname.touched && firstname.invalid">
+                                    <div *ngIf="firstname.errors.required">
+                                        Firstname is required
+                                    </div>
+                                </mat-error>
+                            </mat-form-field>
+                            <mat-form-field class="form-control">
+                                <input matInput placeholder="Surname" name="surname" [(ngModel)]="user.surname"  #surname="ngModel" required>
+                                <mat-error *ngIf="surname.touched && surname.invalid">
+                                    <div *ngIf="surname.errors.required">
+                                        Surname is required
+                                    </div>
+                                </mat-error>
+                            </mat-form-field>
+                            <mat-form-field class="form-control">
+                                <input matInput placeholder="Username" name="username" [(ngModel)]="user.username"  #username="ngModel" required>
+                                <mat-error *ngIf="username.touched && username.invalid">
+                                    <div *ngIf="username.errors.required">
+                                        Username is required
+                                    </div>
+                                </mat-error>
+                            </mat-form-field>
+                            <mat-form-field class="form-control">
+                                <input matInput placeholder="Email" name="email" [(ngModel)]="user.email"  #email="ngModel" required email>
+                                <mat-error *ngIf="email.touched && email.invalid">
+                                    <div *ngIf="email.errors.required">
+                                        Email is required
+                                    </div>
+                                    <div *ngIf="email.errors.email">
+                                        Email is invalid
+                                    </div>
+                                </mat-error>
+                            </mat-form-field>
+                            <button mat-raised-button color="primary" type="submit" [disabled]="!userForm.valid">Save</button>
+                            <button type="button" routerLink="/admin-list" (click)="userForm.reset()" mat-raised-button class="cancel-button">Cancel</button>
+                        </form>
+                    </mat-card>
+                </div>                
+            </div>
+        </div>
+    </section>
+</main>
+
+ 

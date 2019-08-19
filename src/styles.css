@@ -1,0 +1,45 @@
+/* import Angular Material Css */
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+/* Default body Styling */
+body{font-family: 'Open Sans', sans-serif;margin: 0;padding: 0;font-size: 14px;}
+
+
+
+/* Custom spacing classes */
+.padding-lr-15{padding: 0 15px;}
+.padding-lr-30{padding: 0 30px;}
+.margin-0{margin: 0;}
+.content-padding{padding: 30px;}
+
+/* Header for a Section */
+.section-header,.flex-center{display: flex;align-items: center;justify-content: space-between;}
+
+/* all form elements css */
+.form-control{width: 100%;margin-bottom: 10px;}
+.cancel-button.mat-raised-button:not([class*=mat-elevation-z]){ margin-left: 10px;}
+
+/* Delete user Dialog */
+
+.deleteUserDialog .mat-icon-button {width: 30px;height: 30px;line-height: 30px;margin-left: auto}
+.deleteUserDialog .material-icons {font-size: 20px;}
+.deleteUserDialog .mat-dialog-content{margin-bottom: 10px}
+.dialog-header{margin-bottom: 20px}
+.deleteUserDialog .mat-dialog-actions {padding: 8px 0 0;min-height: auto;margin-bottom: 0;}
+
+/* Media Query */
+@media(min-width:768px){
+    /* To fix the width of the Form */
+    .form-width {max-width: 50%;}
+}
+
+@media(max-width:767px){
+    /* Custom spacing classes */
+    .content-padding {padding: 15px;}
+    .padding-lr-30{padding: 0 15px;}
+
+    /* Delete Dialog */
+    .dialog-header h2{
+        font-size: 17px;
+    }
+}
