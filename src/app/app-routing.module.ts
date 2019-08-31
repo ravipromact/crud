@@ -6,8 +6,7 @@ import { AdminListComponent } from './admin/admin-list/admin-list.component';
 import { CompanyComponent } from './company/company.component';
 import { ReportOneComponent } from './report-one/report-one.component';
 import { ReportTwoComponent } from './report-two/report-two.component';
-
-
+import { CarouselComponent } from './image-slider/image-slider.component';
 const routes: Routes = [
   {path:'admin-list',
   component:AdminListComponent},
@@ -16,6 +15,7 @@ const routes: Routes = [
   {path:'company',component:CompanyComponent},
   {path:'report-one',component:ReportOneComponent},
   {path:'report-two',component:ReportTwoComponent},
+  {path:'image-slider',component:CarouselComponent},
   {path:'',redirectTo:'admin-list',pathMatch:'full'}
 ];
 

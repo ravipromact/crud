@@ -6,8 +6,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 
 @Component({
   selector: 'app-add-admin',
-  templateUrl: './add-admin.component.html',
-  styleUrls: ['./add-admin.component.css']
+  templateUrl: './add-admin.component.html'
 })
 
 export class AddAdminComponent implements OnInit {

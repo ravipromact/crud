@@ -6,7 +6,7 @@ import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 @Component({
   selector: 'app-admin-list',
   templateUrl: './admin-list.component.html',
-  styleUrls: ['./admin-list.component.css']
+  styleUrls: ['./admin-list.component.scss']
 })
 
 export class AdminListComponent implements OnInit {
@@ -15,8 +15,11 @@ export class AdminListComponent implements OnInit {
   dataSource:any;
   companies = [];
 
-  // Delete User Record Dialog Configuration
-  //@parameter user --passes the single user record from template to component
+
+  /**
+   * Opens dialog
+   * @param user --passes the single user record from template to component
+   */
   openDialog(user:AdminClass): void {
     
     const dialogRef = this.dialog.open(DeleteUserRecordDialog, {      

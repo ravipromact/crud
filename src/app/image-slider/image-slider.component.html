@@ -1,0 +1,48 @@
+<section class="slider-section">
+  <div class="padding-lr-30">  
+    <!-- Carousel -->
+    <div class="carousel-wrapper" [ngStyle]="carouselWrapperStyle" >
+      <div class="add-image-slides">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Enter image path" [(ngModel)]="name" #ctrl="ngModel" required>
+        </mat-form-field>
+        <button mat-raised-button color="primary" [disabled]="!ctrl.valid" (click)="addSlide(ctrl.value)">Add Slide</button>
+      </div>
+      <div class="carousel-inner" #carousel>    
+        <div class="no-slides"  *ngIf="noSlides"><h3>No Image Slides</h3></div>  
+        <div *ngFor="let item of items;let i = index" class="carousel-item">
+          <!-- <ng-container [ngTemplateOutlet]="item.tpl"></ng-container> -->        
+          <div class="item">
+            <img src="{{item.img}}">
+            <div class="info-overlay">
+              <p>Image Path: {{item.img}}</p>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <div *ngIf="showControls" class="slider-controls">
+        <button (click)="prev()" color="primary" [disabled]="prevDisabled" mat-mini-fab>
+          <i class="material-icons">keyboard_arrow_left</i>
+        </button>   
+        <button (click)="next()" color="primary" [disabled]="nextDisabled" mat-mini-fab>
+          <i class="material-icons">keyboard_arrow_right</i>
+        </button>  
+      </div>
+        <!-- Thumbnail Slides -->
+      <div class="thumbnail-slides">
+        <div *ngFor="let item of items;let i = index" class="thumbnail-item" (click)="changeSlide(i)">
+          <img src="{{item.img}}" alt="slides">       
+        </div>
+      </div>   
+    </div>
+    <!-- Slides list -->
+    <div class="slides-list">
+      <h4>Remove any slides from below</h4>
+      <mat-card *ngFor="let item of items;let i = index" class="slide-item">      
+        <p class="margin-0">Slide {{i+1}}</p>
+        <button (click)="remove(i)" mat-mini-fab><i class="material-icons">close</i></button>
+      </mat-card>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,120 @@
+/* Import Statement */
+@import '../variables.scss';
+@import '../mixins.scss';
+
+
+/* Common Styles */
+%menu-item{line-height: normal;height: auto;padding: 7px 15px;}
+
+
+/* Navbar */
+.navbar{
+    background-color: #43a7ff;
+    height: 64px;
+    padding: 0 15px;
+    @extend %v-align-middle;
+
+    .navbar-header{
+        justify-content: space-between;
+        flex: 1;
+        @extend %v-align-middle;
+
+        .logo-wrapper{
+            @extend %v-align-middle;
+
+            img{
+                margin-right: 10px;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                padding: 9px;
+                background: $white;
+                @include max767{width: 17px;height: 17px;}
+            }
+            h2{color: $white}
+
+        }
+    } 
+
+    // Select Company Option
+    .mat-form-field-appearance-legacy{
+        .mat-form-field-label,.mat-select-arrow,.mat-select-value{color: $white}
+        &.mat-focused .mat-form-field-ripple,.mat-form-field-underline{background-color: $white}
+        &.mat-focused {
+            .mat-form-field-label,&.mat-primary .mat-select-arrow{color: $white;}
+        }
+    }
+    .mat-icon{color: $white}
+
+    @include max767 {
+        padding: 0 8px;
+        .heading-tag{font-size: 16px;}
+        img{width: 35px;}
+    }
+}
+
+/* User Signout Menu */
+.user-menu{
+
+    .mat-menu-item{
+        @extend %menu-item;            
+    }
+    
+    .user-profile{ 
+        margin-bottom: 5px;
+        @extend %v-align-middle;
+        
+        img{margin-right: 15px;}
+    }
+
+    .sign-out{
+        color: red;
+        margin-top: 10px;
+        &.mat-menu-item:hover:not([disabled]){
+            background: red;
+            color: #fff
+        }
+    }
+    
+}
+
+/*Sidenav*/
+.sidenav-container{
+    &.mat-drawer-container{
+        position: absolute;
+        top: 64px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    
+    .sidenavList{
+        list-style: none;
+        padding: 0;
+
+        .mat-button{
+            width: 100%;
+            border-radius: 0;
+            color: #fff;
+            text-align: left;
+            &.active{ background: $blue;}
+        }
+
+        .mat-expansion-panel{
+            background: transparent;
+            box-shadow: none;
+            border-radius: 0;
+
+            .mat-expansion-panel-body {padding: 0;}
+        }
+    }
+    .mat-drawer {width: 180px;background: #000000;}
+
+    .panel-btn{
+        .mat-button-wrapper{
+            width: 100%;
+            justify-content: space-between;
+            @extend %v-align-middle;
+        }
+    }
+}

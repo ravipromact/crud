@@ -7,7 +7,7 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit{
@@ -32,20 +32,25 @@ export class AppComponent implements OnInit{
   sideNavTabs = [
     {name:'Administrators',navigate:'admin-list'},
     {name:'Company',navigate:'company'},
-    {name:'Languages',navigate:0},
+    {name:'Image Slider',navigate:'image-slider'},
     {name:'Members',navigate:0}
   ]
   panelOpenState = false;
   companies = []
   href:any;
  
-  // Initialize the component
+   /**
+    * Initialize  of app component
+    */
+  
   ngOnInit(){
+    /**
+      * Method for Submenu Open based on active route
+      * @prameter event contains the active route
+      * var href act as panel expanded or collapsed
+      * var panelOpenState for arrow icon up or down
+      */
 
-    //Method for Submenu Open based on active route
-    //@prameter event contains the active route
-    //var href act as panel expanded or collapsed
-    //var panelOpenState for arrow icon up or down
     this.router.events.subscribe((event) => {      
       if (event instanceof NavigationEnd ) {
         console.log(event.url)
@@ -65,8 +70,13 @@ export class AppComponent implements OnInit{
     this.companies = this.adminService.companies
 
   }
-  // Destroys the component
+
+  /**
+   * Destroys the component
+   */
   ngOnDestroy(): void {    
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 }
+
+

@@ -1,0 +1,30 @@
+/*Padding mixin*/
+@mixin padding($top,$right,$bottom,$left){
+    padding-top: $top;
+    padding-right: $right;
+    padding-bottom: $bottom;
+    padding-left: $left;
+}
+
+/*Media Query mixin*/
+
+@mixin min1024 {
+    @media (min-width: #{$width-1024}){
+      @content;
+    }
+}
+@mixin max1024 {
+  @media (max-width: #{$width-1024}){
+    @content;
+  }
+}
+@mixin max767 {
+    @media (max-width: #{$width-767}){
+      @content;
+    }
+}
+@mixin max600 {
+  @media (max-width: #{$width-600}){
+    @content;
+  }
+}

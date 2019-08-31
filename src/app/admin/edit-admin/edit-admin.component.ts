@@ -6,8 +6,7 @@ import { AdminService }  from '../../shared/admin.service';
 
 @Component({
   selector: 'app-edit-admin',
-  templateUrl: './edit-admin.component.html',
-  styleUrls: ['./edit-admin.component.css']
+  templateUrl: './edit-admin.component.html'
 })
 
 export class EditAdminComponent implements OnInit {

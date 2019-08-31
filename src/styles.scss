@@ -1,0 +1,66 @@
+/* import Angular Material Css */
+@import './variables.scss';
+@import './mixins.scss';
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+/* Default body Styling */
+body{
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+}
+/*Button Default color*/
+.mat-raised-button.mat-primary{background-color: #43a7ff;} 
+.mat-icon-button.mat-primary{color: #43a7ff;}
+
+
+/* Custom spacing classes */
+.padding-lr-15{padding: 0 15px;}
+.padding-lr-30{padding: 0 30px;}
+.margin-0{margin: 0;}
+.content-padding{padding: 30px;}
+
+/* Header for a Section */
+.flex-center{display: flex;align-items: center;justify-content: space-between;}
+.section-header{@extend .flex-center;}
+/* all form elements css */
+.form-control{width: 100%;margin-bottom: 10px;}
+.cancel-button.mat-raised-button:not([class*=mat-elevation-z]){ margin-left: 10px;}
+
+/* Delete user Dialog */
+.deleteUserDialog{
+    .mat-icon-button {width: 30px;height: 30px;line-height: 30px;margin-left: auto}
+    .material-icons {font-size: 20px;}
+    .mat-dialog-content{margin-bottom: 10px}
+    .dialog-header{margin-bottom: 20px}
+    .mat-dialog-actions {padding: 8px 0 0;min-height: auto;margin-bottom: 0;}
+}
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled),
+.mat-option:hover:not(.mat-option-disabled),
+.mat-option:focus:not(.mat-option-disabled),.mat-option.mat-active,
+.mat-form-field.mat-focused .mat-form-field-label{
+    color: $blue;
+}
+
+.mat-form-field.mat-focused .mat-form-field-ripple {
+    background-color: $blue;
+}
+// .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple),
+// .mat-option:hover:not(.mat-option-disabled),
+// .mat-option:focus:not(.mat-option-disabled),.mat-option.mat-active{background-color: #43a7ff;}
+
+/* Media Query */
+
+@include min1024 {
+    /* To fix the width of the Form */
+    .form-width {max-width: 50%;}
+}
+@include max767 {
+    /* Custom spacing classes */
+    .content-padding {padding: 15px;}
+    .padding-lr-30{padding: 0 15px;}
+
+    /* Delete Dialog */
+    .dialog-header h2{font-size: 17px;}
+}

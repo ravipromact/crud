@@ -1,0 +1,171 @@
+@import '../../variables.scss';
+@import '../../mixins.scss';
+
+//Slides width
+%slide-width{
+  width: 700px;
+  @include max1024 {
+    width: 571px;
+  }
+  @include max600 {
+    width: 290px;
+  }
+}
+
+.slider-section{
+  padding: 50px 0;
+
+  //Add Slides
+  .add-image-slides{
+    @extend %v-align-middle;
+    justify-content: flex-end;
+
+    .mat-form-field{
+      width: 300px;
+      @include max767{width: 198px}
+    }
+
+    .mat-raised-button{
+      margin-left: 10px;
+    }
+  }
+  //Main Carousel 
+  .carousel-wrapper {
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+    
+    .carousel-inner  {
+      display: flex;
+      width: 6000px;
+
+      .carousel-item{
+        .item{
+          @extend %slide-width;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+            .info-overlay{
+              position: absolute;
+              bottom: 0;
+              background: rgba(0, 0, 0, 0.5);
+              color: $white;
+              padding: 30px;
+              transform: translateY(100%);
+              transition: 0.4s;
+              @include max600{
+                padding: 15px;
+                font-size: 12px;
+                p{margin: 0 0 10px}
+              }
+            }
+            &:hover {
+              .info-overlay{
+                transform: translateY(0);
+              }
+            }
+            img{
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+
+          @include max600 {height: 190px;}
+        }
+      }
+    }
+
+    //Thumbnail Slides
+    .thumbnail-slides{
+      display: flex;
+      margin: 0 -5px;
+      flex-wrap: wrap;
+    
+      .thumbnail-item {
+        border: 3px solid #b5b5b5;
+        display: flex;
+        margin: 5px;
+        img{
+          width: 102px;
+          height: 62px;
+          object-fit: cover;
+          @include max1024 {
+            width: 100px;
+          }
+          @include max600 {
+            width: 84px;
+            height: 45px;
+          }
+        }
+      }
+    }
+
+    //Next and Prev Buttons
+    .slider-controls{
+      margin-top: 0;
+      position: absolute;
+      top: 240px;
+      display: flex;
+      justify-content: space-between;
+      width: 95%;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      .mat-mini-fab,.mat-mini-fab:hover{
+        background: $blue;
+      }
+      .mat-mini-fab{
+        @include max600 {
+          width: 30px;
+          height: 30px;
+        }
+      }
+      @include max600{top: 140px;}
+    }
+  }
+
+  //Remove Slide
+  .slides-list{
+    @extend %slide-width;
+    margin: 0 auto;
+
+    .slide-item{
+      @extend %v-align-middle;
+      margin-top: 15px;
+
+      .mat-mini-fab{
+        background: red;
+        width: 20px;
+        height: 20px;
+        color: #fff;
+        margin-left: auto;
+        justify-content: center;
+        @extend %v-align-middle;
+
+        .material-icons{
+          font-size: 15px;
+        }
+      }
+
+    }    
+  }
+}
+  
+
+
+  //Global Style for Material icons
+  :host ::ng-deep .mat-mini-fab .mat-button-wrapper {
+    padding: 0;
+    line-height:0;
+  }
+  :host ::ng-deep .slider-controls .mat-mini-fab .mat-button-wrapper{
+    @include max767{
+      position: relative;
+      top: -3px;
+      .material-icons{font-size: 18px;}
+    }
+  }
+  
+// .no-slides{
+  
+// }

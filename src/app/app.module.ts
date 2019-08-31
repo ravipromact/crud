@@ -7,6 +7,7 @@ import { HttpClientModule }    from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './shared/in-memory-data.service';
 
+
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {DemoMaterialModule} from '../material-module';
 import { FormsModule }    from '@angular/forms';
@@ -18,6 +19,9 @@ import { CompanyComponent } from './company/company.component';
 import { AdminService } from './shared/admin.service';
 import { ReportOneComponent } from './report-one/report-one.component';
 import { ReportTwoComponent } from './report-two/report-two.component';
+import { CarouselItemElement,CarouselComponent } from './image-slider/image-slider.component'
+
+
 
 
 
@@ -30,7 +34,9 @@ import { ReportTwoComponent } from './report-two/report-two.component';
     AdminListComponent,
     DeleteUserRecordDialog,
     ReportOneComponent,
-    ReportTwoComponent
+    ReportTwoComponent,
+    CarouselItemElement,CarouselComponent
+  
   ],
   imports: [
     BrowserModule,
